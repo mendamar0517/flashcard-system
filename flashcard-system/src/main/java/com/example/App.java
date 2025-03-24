@@ -41,7 +41,20 @@ public class App implements Callable<Integer> {
         for (Flashcard card : cards) {
             System.out.println("Question: " + card.getQuestion() + " (Mistakes: " + card.getMistakes() + ")");
         }
+        SessionStats stats = new SessionStats(10, 10, 6, 4.5); // Түр зуурын өгөгдөл
 
+        Achievement[] achievements = {
+            new CorrectAchievement(),
+        new RepeatAchievement(),
+        new ConfidentAchievement()
+        };
+
+        System.out.println("\nAchievements:");
+        for (Achievement achievement : achievements) {
+            if (achievement.checkAchieved(stats)) {
+        System.out.println("- " + achievement.getName());
+        }
+    }
         return 0;
     }
 
