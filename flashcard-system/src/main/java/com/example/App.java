@@ -1,6 +1,7 @@
 package com.example;
 
 import java.io.File;
+import java.util.List;
 import java.util.concurrent.Callable;
 
 import picocli.CommandLine;
@@ -26,7 +27,31 @@ public class App implements Callable<Integer> {
         System.out.println("Order: " + order);
         System.out.println("Repetitions: " + repetitions);
         System.out.println("Invert Cards: " + invertCards);
+
+        // Flashcard-уудыг ачаалж байна
+        List<Flashcard> cards = loadFlashcards(flashcardFile);
+
+        // Картуудын дарааллыг сонгож байна
+        if ("recent-mistakes-first".equals(order)) {
+            CardOrganizer organizer = new RecentMistakesFirstSorter();
+            cards = organizer.organize(cards);
+        }
+
+        // Асуултуудыг хэвлэх
+        for (Flashcard card : cards) {
+            System.out.println("Question: " + card.getQuestion() + " (Mistakes: " + card.getMistakes() + ")");
+        }
+
         return 0;
+    }
+
+    // Fake card loader - Жинхэнэ файл ачаалдаг болгож сайжруулж болно
+    private List<Flashcard> loadFlashcards(@SuppressWarnings("unused") File file) {
+        return List.of(
+            new Flashcard("What is Java?", "A programming language", 2),
+            new Flashcard("What is OOP?", "Object-Oriented Programming", 1),
+            new Flashcard("What is Git?", "Version control system", 3)
+        );
     }
 
     public static void main(String[] args) {
