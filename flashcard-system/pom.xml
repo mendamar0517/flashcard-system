@@ -1,6 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"  
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
@@ -16,14 +16,14 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     </properties>
 
     <dependencies>
-        <!-- ✅ PicoCLI (CLI хэрэгсэл) -->
+        <!-- PicoCLI (CLI хэрэгсэл) -->
         <dependency>
             <groupId>info.picocli</groupId>
             <artifactId>picocli</artifactId>
             <version>4.7.4</version>
         </dependency>
 
-        <!-- ✅ JUnit 5 (Тест) -->
+        <!-- JUnit 5 (Тест) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -31,7 +31,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
             <scope>test</scope>
         </dependency>
 
-        <!-- ✅ Lombok (код хялбарчлах) -->
+        <!-- Lombok (код хялбарчлах) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -42,7 +42,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 
     <build>
         <plugins>
-            <!-- ✅ Maven Shade Plugin (JAR дотор бүх сангуудыг оруулах) -->
+            <!-- Maven Shade Plugin (JAR дотор бүх сангуудыг оруулах) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -64,7 +64,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                 </executions>
             </plugin>
 
-            <!-- ✅ Compiler Plugin (JDK 17 тохиргоо) -->
+            <!-- Compiler Plugin (JDK 17 тохиргоо) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -75,7 +75,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                 </configuration>
             </plugin>
 
-            <!-- ✅ Surefire Plugin (JUnit 5 тестүүдийг ажиллуулах) -->
+            <!-- Surefire Plugin (JUnit 5 тестүүдийг ажиллуулах) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -83,4 +83,19 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
             </plugin>
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.9.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.4.2</version>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
