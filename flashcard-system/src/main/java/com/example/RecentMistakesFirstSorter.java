@@ -1,7 +1,7 @@
 package com.example;
 
-import java.util.List;
 import java.util.Comparator;
+import java.util.List;
 
 public class RecentMistakesFirstSorter implements CardOrganizer {
     @Override
